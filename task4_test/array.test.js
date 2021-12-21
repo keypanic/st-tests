@@ -16,48 +16,49 @@ const data = {
 
 describe('Test chunk function', () => {
 
-  for(let case_name in data) {
-    test(`Chunk ${case_name}`, () => {
+  test(`data tests`, () => {
+    for(let case_name in data) {
       expect(ArrayLodash.chunk(data[case_name])).toEqual(_.chunk(data[case_name]));
-    })
-  }
+    }
+  });
 
-  for(let obj of random_data) {
-    test('Chunk random data', () => {
+  test('random data', () => {
+    for(let obj of random_data) {
       expect(ArrayLodash.chunk(obj.array, obj.n)).toEqual(_.chunk(obj.array, obj.n));
-    });
-  }
+    }
+  });
+
 
 });
 
 describe('Test compact function', () => {
 
-  for(let case_name in data) {
-    test(`Compact ${case_name}`, () => {
+  test(`data tests`, () => {
+    for(let case_name in data) {
       expect(ArrayLodash.compact(data[case_name])).toEqual(_.compact(data[case_name]));
-    })
-  }
+    }
+  });
 
-  for(let obj of random_data) {
-    test('Compact random data', () => {
+  test('random data', () => {
+    for(let obj of random_data) {
       expect(ArrayLodash.compact(obj.array)).toEqual(_.compact(obj.array));
-    });
-  }
+    }
+  });
 
 });
 
 describe('Test drop function', () => {
 
-  for(let case_name in data) {
-    test(`Drop ${case_name}`, () => {
+  test(`data tests`, () => {
+    for(let case_name in data) {
       expect(ArrayLodash.drop(data[case_name])).toEqual(_.drop(data[case_name]));
-    })
-  }
+    }
+  })
 
-  for(let obj of random_data) { 
-    test('Drop random data', () => {
+  test('random data', () => {
+    for(let obj of random_data) { 
       expect(ArrayLodash.drop(obj.array, obj.n)).toEqual(_.drop(obj.array, obj.n));
-    });
-  }
+    }
+  });
 
 }); 
