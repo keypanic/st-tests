@@ -1,6 +1,6 @@
 const _ = require('lodash/array');
 const { ArrayLodash } = require('./src/array');
-const { generate_arrays } = require('./src/util');
+const random_data = require('./test_data/array_data.json');
 
 const data = {
   array_even: [1,2,3,4],
@@ -13,7 +13,6 @@ const data = {
   not_array: 12,
 }
  
-const random_data = generate_arrays(10, 2);
 
 describe('Test chunk function', () => {
 
@@ -23,10 +22,9 @@ describe('Test chunk function', () => {
     })
   }
 
-  for(let arr of random_data) {
-    let n = Math.round(Math.random() * arr.length);
+  for(let obj of random_data) {
     test('Chunk random data', () => {
-      expect(ArrayLodash.chunk(arr, n)).toEqual(_.chunk(arr, n));
+      expect(ArrayLodash.chunk(obj.array, obj.n)).toEqual(_.chunk(obj.array, obj.n));
     });
   }
 
@@ -40,9 +38,9 @@ describe('Test compact function', () => {
     })
   }
 
-  for(let arr of random_data) {
+  for(let obj of random_data) {
     test('Compact random data', () => {
-      expect(ArrayLodash.compact(arr)).toEqual(_.compact(arr));
+      expect(ArrayLodash.compact(obj.array)).toEqual(_.compact(obj.array));
     });
   }
 
@@ -56,10 +54,9 @@ describe('Test drop function', () => {
     })
   }
 
-  for(let arr of random_data) {
-    let n = Math.round(Math.random() * arr.length);
+  for(let obj of random_data) { 
     test('Drop random data', () => {
-      expect(ArrayLodash.drop(arr, n)).toEqual(_.drop(arr, n));
+      expect(ArrayLodash.drop(obj.array, obj.n)).toEqual(_.drop(obj.array, obj.n));
     });
   }
 
