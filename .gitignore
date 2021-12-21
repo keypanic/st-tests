@@ -3,6 +3,9 @@ logs
 *.log
 npm-debug.log*
 
+index.js
+src/
+
 # Vscode settings
 .vscode/
 
